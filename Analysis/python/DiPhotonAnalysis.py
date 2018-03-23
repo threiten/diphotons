@@ -123,7 +123,7 @@ class DiPhotonAnalysis(object):
         self.customizeDiphotonCorrections(process,jobConfig.processType)
 
         import os
-        if os.environ["CMSSW_VERSION"].count("CMSSW_9_2"):
+        if os.environ["CMSSW_VERSION"].count("CMSSW_9_"):
             from flashgg.MicroAOD.MicroAODCustomize import createTaskWithAllProducersAndFilters
             process.myTask = createTaskWithAllProducersAndFilters(process)
         
