@@ -239,15 +239,15 @@ def getDefaultConfig(trackAllCorrections=True):
                "subleadSigEOverE := subLeadingPhoton.sigEOverE"]
     if trackAllCorrections:
         variables += [               
-               "leadRecoEreg              := leadingPhoton.userFloat('reco_regr_E')",
-               "leadRecoSigEOverE     := leadingPhoton.userFloat('reco_regr_E_err') / leadingPhoton.userFloat('reco_regr_E')",
-               "subleadRecoEreg           := subLeadingPhoton.userFloat('reco_regr_E')",
-               "subleadRecoSigEOverE  := subLeadingPhoton.userFloat('reco_regr_E_err') / subLeadingPhoton.userFloat('reco_regr_E')",
+               #"leadRecoEreg              := leadingPhoton.userFloat('reco_regr_E')",
+               #"leadRecoSigEOverE     := leadingPhoton.userFloat('reco_regr_E_err') / leadingPhoton.userFloat('reco_regr_E')",
+               #"subleadRecoEreg           := subLeadingPhoton.userFloat('reco_regr_E')",
+               #"subleadRecoSigEOverE  := subLeadingPhoton.userFloat('reco_regr_E_err') / subLeadingPhoton.userFloat('reco_regr_E')",
                
-               "leadAfterSSTrEreg              := leadingPhoton.userFloat('afterShShTransf_regr_E')",
-               "leadAfterSSTrSigEOverE     := leadingPhoton.userFloat('afterShShTransf_regr_E_err') / leadingPhoton.userFloat('afterShShTransf_regr_E')",
-               "subleadAfterSSTrEreg           := subLeadingPhoton.userFloat('afterShShTransf_regr_E')",
-               "subleadAfterSSTrSigEOverE  := subLeadingPhoton.userFloat('afterShShTransf_regr_E_err') / subLeadingPhoton.userFloat('afterShShTransf_regr_E')",
+               #"leadAfterSSTrEreg              := leadingPhoton.userFloat('afterShShTransf_regr_E')",
+               #"leadAfterSSTrSigEOverE     := leadingPhoton.userFloat('afterShShTransf_regr_E_err') / leadingPhoton.userFloat('afterShShTransf_regr_E')",
+               #"subleadAfterSSTrEreg           := subLeadingPhoton.userFloat('afterShShTransf_regr_E')",
+               #"subleadAfterSSTrSigEOverE  := subLeadingPhoton.userFloat('afterShShTransf_regr_E_err') / subLeadingPhoton.userFloat('afterShShTransf_regr_E')",
 
                "leadUnsmearedSigmaEoE      := leadingPhoton.userFloat('unsmearedSigmaEoE')",
                "subleadUnsmearedSigmaEoE      := subLeadingPhoton.userFloat('unsmearedSigmaEoE')",

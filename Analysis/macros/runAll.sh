@@ -9,11 +9,16 @@ fi
 set -x 
 
 
-fggRunJobs.py --load ../config/jobs_dielectron_92.json   ../config/high_mass_analysis.py applyDiphotonCorrections=0 -d double_ele_${version}_92_data maxEvents=100  -H --no-use-tarball &
-## maxEvents=-1  -n 50 -H -q 8nh &
+fggRunJobs.py --load ../config/jobs_dielectron_ReReco16.json   ../config/high_mass_analysis.py -d double_ele_${version}_80_ReReco16_data maxEvents=-1 -n 200 -q all.q -H --no-copy-proxy &
 
-fggRunJobs.py --load ../config/jobs_dielectron_92_mc.json   ../config/high_mass_analysis.py applyDiphotonCorrections=0 -d double_ele_${version}_92_mc maxEvents=100  -H --no-use-tarball &
-## maxEvents=-1 -n 200 -H -q 1nd &
+fggRunJobs.py --load ../config/jobs_dielectron_ReReco16_mc.json   ../config/high_mass_analysis.py -d double_ele_${version}_80_ReReco16_mc maxEvents=-1 -n 200 -q all.q -H --no-copy-proxy &
+
+
+# fggRunJobs.py --load ../config/jobs_dielectron_92.json   ../config/high_mass_analysis.py applyDiphotonCorrections=0 -d double_ele_${version}_92_data maxEvents=100  -H --no-use-tarball  &
+# ## maxEvents=-1  -n 50 -H -q 8nh &
+# 
+# fggRunJobs.py --load ../config/jobs_dielectron_92_mc.json   ../config/high_mass_analysis.py applyDiphotonCorrections=0 -d double_ele_${version}_92_mc maxEvents=100  -H --no-use-tarball &
+# ## maxEvents=-1 -n 200 -H -q 1nd &
 
 
 ## fggRunJobs.py --load ../config/jobs_diphoton_80_cert_274443.json     ../config/high_mass_analysis.py applyDiphotonCorrections=1 maxEvents=-1  -d full_analysis_spring16v1_sync_${version}_cert_274443 -n 50 -H -q 8nh  &

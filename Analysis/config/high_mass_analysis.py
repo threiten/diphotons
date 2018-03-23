@@ -79,7 +79,7 @@ customize.setDefault("targetLumi",1.e+3)
 
 ## Moriond17 ReMiniAOD 35.9/fb
 customize.setDefault("puTarget",
-                     "2.39e+05,8.38e+05,2.31e+06,3.12e+06,4.48e+06,6e+06,7e+06,1.29e+07,3.53e+07,7.87e+07,1.77e+08,3.6e+08,6.03e+08,8.77e+08,1.17e+09,1.49e+09,1.76e+09,1.94e+09,2.05e+09,2.1e+09,2.13e+09,2.15e+09,2.13e+09,2.06e+09,1.96e+09,1.84e+09,1.7e+09,1.55e+09,1.4e+09,1.24e+09,1.09e+09,9.37e+08,7.92e+08,6.57e+08,5.34e+08,4.27e+08,3.35e+08,2.58e+08,1.94e+08,1.42e+08,1.01e+08,6.9e+07,4.55e+07,2.88e+07,1.75e+07,1.02e+07,5.64e+06,2.99e+06,1.51e+06,7.32e+05,3.4e+05,1.53e+05,6.74e+04,3.05e+04,1.52e+04,8.98e+03,6.5e+03,5.43e+03,4.89e+03,4.52e+03,4.21e+03,3.91e+03,3.61e+03,3.32e+03,3.03e+03,2.75e+03,2.47e+03,2.21e+03,1.97e+03,1.74e+03,1.52e+03,1.32e+03,1.14e+03,983,839")
+                     "6.343e-06,1.673e-05,5.82e-05,7.23e-05,0.0001084,0.0001427,0.0001706,0.0002254,0.0005658,0.001307,0.002762,0.005866,0.01082,0.01693,0.02368,0.03101,0.03866,0.04523,0.04982,0.05255,0.05397,0.05479,0.05533,0.05521,0.05404,0.05196,0.04927,0.04615,0.04269,0.039,0.03523,0.03146,0.02771,0.02404,0.02052,0.01722,0.01421,0.01154,0.009221,0.007242,0.005579,0.004203,0.003086,0.002201,0.001519,0.001013,0.0006509,0.0004025,0.0002392,0.0001365,7.482e-05,3.937e-05,1.991e-05,9.703e-06,4.583e-06,2.125e-06,9.954e-07,4.957e-07,2.818e-07,1.916e-07,1.526e-07,1.339e-07,1.229e-07,1.145e-07,1.071e-07,9.982e-08,9.263e-08,8.549e-08,7.844e-08,7.155e-08,6.487e-08,5.846e-08,5.237e-08,4.663e-08,4.127e-08")
 
 
 import FWCore.ParameterSet.VarParsing as VarParsing
@@ -528,8 +528,8 @@ if customize.doTnP:
     from diphotons.Analysis.highMassCiCPhotons_cfi import highMassCiCPhotonsV2
     process.flashggTagAndProbe = flashggTagAndProbe
     process.flashggTagAndProbe.diphotonsSrc = "kinDiPhotons"
-    process.flashggTagAndProbe.tagSelection = "%s && abs(eta) < 2.1 && pt > 30 && (?hasUserCand('eleMatch')?userCand('eleMatch').passTightId:0) && hasPixelSeed && full5x5_r9>0.8 && egChargedHadronIso < 20 && egChargedHadronIso/pt < 0.3" % matchTriggerPaths
-    process.flashggTagAndProbe.probeSelection = "full5x5_r9>0.8 && egChargedHadronIso < 20 && egChargedHadronIso/pt < 0.3"
+    process.flashggTagAndProbe.tagSelection = "%s && abs(eta) < 2.1 && pt > 30 && (?hasUserCand('eleMatch')?userCand('eleMatch').passTightId:0) && hasPixelSeed && egChargedHadronIso < 20 && egChargedHadronIso/pt < 0.3" % matchTriggerPaths
+    process.flashggTagAndProbe.probeSelection = "egChargedHadronIso < 20 && egChargedHadronIso/pt < 0.3"
     process.flashggTagAndProbe.idSelection = cms.PSet(
         rho = highMassCiCPhotonsV2.rho,
         cut = highMassCiCPhotonsV2.cut,        
@@ -747,8 +747,8 @@ if not customize.lastAttempt:
 
 # run all upstream corrections from flashgg
 process.load("flashgg.Systematics.flashggDiPhotonSystematics_cfi")
-process.load("flashgg.Taggers.flashggUpdatedIdMVADiPhotons_cfi")
-process.flashggDiPhotonSystematics.src = cms.InputTag("flashggUpdatedIdMVADiPhotons")
+#process.load("flashgg.Taggers.flashggUpdatedIdMVADiPhotons_cfi")
+#process.flashggDiPhotonSystematics.src = cms.InputTag("kinDiPhotons")
 
 #
 # input and output
