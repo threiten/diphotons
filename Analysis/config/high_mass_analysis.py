@@ -522,27 +522,22 @@ if invertEleVeto:
     ###     ## for cat in highMassCiCDiPhotons.categories:
     ###     ## cat.append( cms.PSet(min=cms.string("0.5"))  )        
             
-# Convert configuration to tag and probe
 if customize.doTnP:
-    # FIXME
-    # - add TnP object producer
-    # - swap diphoton dumper with TnP dumper
-    # - replace lead / sublead with tag / prob in variables
-    # - add flags for cuts in photon ID (needs code in dumper)
+
     process.load("flashgg.Taggers.FlashggTagAndProbeProducer_cfi")
     process.load("flashgg.Taggers.tagAndProbeDumper_cfi")    
     from flashgg.Taggers.FlashggTagAndProbeProducer_cfi import flashggTagAndProbe
     from diphotons.Analysis.highMassCiCPhotons_cfi import highMassCiCPhotonsV2
     process.flashggTagAndProbe = flashggTagAndProbe
     process.flashggTagAndProbe.diphotonsSrc = "kinDiPhotons"
-    process.flashggTagAndProbe.tagSelection = "%s && pt > 40 && (?hasUserCand('eleMatch')?userCand('eleMatch').passTightId:0) && hasPixelSeed && egChargedHadronIso < 20 && egChargedHadronIso/pt < 0.3" % matchTriggerPaths
+    process.flashggTagAndProbe.tagSelection = "%s && pt > 40 && (?hasUserCand('eleMatch')?userCand('eleMatch').passTightId:0) && hasPixelSeed && egChargedHadronIso < 20 && egChargedHadronIso/pt < 0.3" % matchTriggerPaths 
     process.flashggTagAndProbe.probeSelection = "egChargedHadronIso < 20 && egChargedHadronIso/pt < 0.3"
     process.flashggTagAndProbe.idSelection = cms.PSet(
         rho = highMassCiCPhotonsV2.rho,
         cut = highMassCiCPhotonsV2.cut,        
         variables = highMassCiCPhotonsV2.variables,
         categories = highMassCiCPhotonsV2.categories
-        )
+        ) #This only adds flags to the ntuples to test a particular selection, does not affect the tag or probe selection
     from flashgg.Taggers.tagAndProbeDumper_cfi import tagAndProbeDumper
     tagAndProbeDumper.dumpTrees = True
     cfgTools.addCategories(tagAndProbeDumper,
