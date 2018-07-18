@@ -754,8 +754,8 @@ if not customize.lastAttempt:
 
 # run all upstream corrections from flashgg
 process.load("flashgg.Systematics.flashggDiPhotonSystematics_cfi")
-process.load("flashgg.Taggers.flashggUpdatedIdMVADiPhotons_cfi")
-process.flashggDiPhotonSystematics.src = cms.InputTag("flashggUpdatedIdMVADiPhotons")
+#process.load("flashgg.Taggers.flashggUpdatedIdMVADiPhotons_cfi")
+#process.flashggDiPhotonSystematics.src = cms.InputTag("flashggUpdatedIdMVADiPhotons")
 
 #
 # input and output

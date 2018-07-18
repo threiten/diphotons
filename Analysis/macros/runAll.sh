@@ -8,11 +8,10 @@ fi
 
 set -x 
 
-
-fggRunJobs.py --load ../config/jobs_dielectron_94.json   ../config/high_mass_analysis.py applyDiphotonCorrections=0 -d double_ele_${version}_94_data maxEvents=-1 -n 200 -q 8nh -H &
+fggRunJobs.py --load ../config/jobs_dielectron_94_310.json   ../config/high_mass_analysis.py applyDiphotonCorrections=1 -d double_ele_${version}_94_310_data maxEvents=-1 -n 500 -q 8nh -H &
 ## maxEvents=-1  -n 50 -H -q 8nh &
 
-fggRunJobs.py --load ../config/jobs_dielectron_94_mc.json   ../config/high_mass_analysis.py applyDiphotonCorrections=0 -d double_ele_${version}_94_mc maxEvents=-1 -n 200 -q 8nh -H &
+fggRunJobs.py --load ../config/jobs_dielectron_94_310_mc.json   ../config/high_mass_analysis.py applyDiphotonCorrections=1 -d double_ele_${version}_94_310_mc maxEvents=-1 -n 500 -q 8nh -H &
 ## maxEvents=-1 -n 200 -H -q 1nd &
 
 
