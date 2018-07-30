@@ -531,7 +531,7 @@ if customize.doTnP:
     process.flashggTagAndProbe = flashggTagAndProbe
     process.flashggTagAndProbe.diphotonsSrc = "kinDiPhotons"
     process.flashggTagAndProbe.tagSelection = "%s && pt > 40 && (?hasUserCand('eleMatch')?userCand('eleMatch').passTightId:0) && hasPixelSeed && egChargedHadronIso < 20 && egChargedHadronIso/pt < 0.3" % matchTriggerPaths 
-    process.flashggTagAndProbe.probeSelection = "egChargedHadronIso < 20 && egChargedHadronIso/pt < 0.3"
+    process.flashggTagAndProbe.probeSelection = "hasPixelSeed && egChargedHadronIso < 20 && egChargedHadronIso/pt < 0.3"
     process.flashggTagAndProbe.idSelection = cms.PSet(
         rho = highMassCiCPhotonsV2.rho,
         cut = highMassCiCPhotonsV2.cut,        
